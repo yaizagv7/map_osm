@@ -1,0 +1,50 @@
+{
+  "message": {
+    "zoomIn": "",
+    "username": "",
+    "selectType": "",
+    "wasteDisposal": "",
+    "recyclingContainer": "",
+    "recyclingOrganization": "",
+    "organizationName": "",
+    "description": "",
+    "selected": "",
+    "available": "",
+    "selectFractions": "",
+    "addMode": "",
+    "addModeHint": "",
+    "loadDataError": "",
+    "saveNodeError": "",
+    "saveNodeSuccess": "",
+    "needAccount": "",
+    "aboutOsm": "",
+    "signUp": "",
+    "devBy": ""
+  },
+  "menu": {
+    "map": "",
+    "user": ""
+  },
+  "button": {
+    "toMap": "",
+    "logout": "",
+    "login": "",
+    "next": "",
+    "cancel": "",
+    "save": "",
+    "edit": "",
+    "josm": "",
+    "osmLink": "",
+    "seeMore": ""
+  },
+  "about": {
+    "app": "",
+    "dataHeader": "",
+    "data": "",
+    "contributingHeader": "",
+    "contributing": "",
+    "contact": "",
+    "androidHeader": "Android",
+    "android": ""
+  }
+}
