@@ -16,6 +16,13 @@
 						"tags": [
 							["amenity","fuel"]
 						]
+					},
+					{
+						"name": "Librerías",
+						"icon": "icon_book",
+						"tags": [
+							["shop","books"]
+						]
 					}],
 		"isOpen" :false
 	},
@@ -44,6 +51,13 @@
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "regional"]
+				]
+			},{
+				"name": "Restaurantes mexicanos",
+				"icon": "icon_mex",
+				"tags": [
+					["amenity","restaurant"],
+					["cuisine", "mexican"]
 				]
 			}],
 		"isOpen":false

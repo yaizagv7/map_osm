@@ -130,16 +130,16 @@ export default {
     //   console.log("datos ov");
     //   console.log(ovData);
       this.layer = L.geoJson(ovData, {
-        style: function (feature) {
+        style: function () {
           //switch case para mas opciones
           var color = "#80B4FF"; // blue
           return {
             opacity: 1,
             fillOpacity: 1,
-            color: "white",
+            color: "black",
             fillColor: color,
             weight: 1,
-            radius: 8,
+            radius: 6,
           };
         },
         onEachFeature: function (feature, layer) {

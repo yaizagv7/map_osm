@@ -225,6 +225,9 @@ export default {
         case "convenience":
           item = "Tienda";
           return item;
+        case "books":
+          item = "Tienda de libros";
+          return item;
         default:
           return item;
       }

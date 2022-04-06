@@ -1,4 +1,4 @@
-# OpenRecycleMap - a waste sorting app
+# OpenMap - a useful app
 
 ![OpenRecycleMap](https://raw.githubusercontent.com/meta-systems/openrecyclemap/master/public/android-chrome-144x144.png)
 

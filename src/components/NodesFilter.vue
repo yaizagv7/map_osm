@@ -1,40 +1,47 @@
 <template>
   <div>
     <transition name="translate">
-    <div class="map_filters" v-if="sideBar">
-      <div class="brand">Moovity Map</div>
-      <div class="menu-list">
-        <ul>
-          <li
-            v-for="item in menu"
-            :key="item.name"
-            @click="item.isOpen = !item.isOpen"
-          >
-            <div class="menu1" :class="item.icon">{{ item.name }}</div>
-            <ul v-if="item.isOpen" class="menu2">
-              <li v-for="children in item.children" :key="children.name">
-                <div
-                  @click.stop.prevent="$emit('launch-query', children.tags)"
-                  :class="['map_filter', children.icon]"
+      <div class="map_filters" v-if="sideBar">
+        <div class="brand">Moove Map</div>
+        <input type="text" class="search" v-model="search" />
+        <div class="menu-list">
+          <ul>
+            <li
+              v-for="item in menu"
+              :key="item.name"
+              @click="item.isOpen = !item.isOpen"
+            >
+              <div v-show="menu_filter(item)" class="menu1" :class="item.icon">{{ item.name }}</div>
+              <ul
+                class="menu2"
+              >
+                <li
+                v-show="item.isOpen"
+                  v-for="child in item.children"
+                  :key="child.name"
                 >
-                  {{ children.name.toUpperCase() }}
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
+                  <div v-show="childFilter(child,item)" 
+                    @click.stop.prevent="$emit('launch-query', child.tags)"
+                    :class="['map_filter', child.icon]"
+                  >
+                    {{ child.name.toUpperCase() }}
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
     </transition>
     <button v-if="sideBar" @click="openCloseSideBar">&laquo; &raquo;</button>
-    <button v-else class="toOpen"  @click="openCloseSideBar">&laquo; &raquo;</button>
+    <button v-else class="toOpen" @click="openCloseSideBar">
+      &laquo; &raquo;
+    </button>
   </div>
 </template>
 
 <script>
 import menu_data from "../menu-data.json";
-
-const menu = menu_data.tojoson();
 
 export default {
   name: "nodes-filter",
@@ -42,32 +49,79 @@ export default {
   data: function () {
     return {
       menu: menu_data,
-      sideBar: true,
-      button: true
+      children_filtered: [{}],
+      sideBar: false,
+      button: true,
+      search: "",
     };
   },
+  computed: {
+    menu_filtered: function () {
+      var valThis = this.search.toLowerCase();
+      if (!valThis || valThis == "") {
+        return this.menu;
+      }
+      return this.menu.filter((item) =>
+        item.name.toLowerCase().includes(valThis)
+      );
+    },
+    children_filter: function(){
+      for(let item in this.menu){
+        this.children_filtered.push(item.children);
+      }
+      var valThis = this.search.toLowerCase();
+      if (!valThis || valThis == "") {
+        return this.children_filtered;
+      }
+      return this.children_filtered.filter((item) =>
+        item.name.toLowerCase().includes(valThis)
+      );
+    }
+  },
   methods: {
-    toggleChildren(item) {
-      item.isOpen = !item.isOpen;
+    menu_filter: function (item) {
+      var valThis = this.search.toLowerCase();
+      if (!valThis || valThis == "") {
+        return true;
+      }
+      if(item.name.toLowerCase().includes(valThis)){
+        return true;
+      }
+       return false;
+      
+    },
+    childFilter(child,item) {
+      var valThis = this.search.toLowerCase();
+      if (valThis != "") {
+        if (child.name.toLowerCase().includes(valThis)) {
+          item.isOpen = true;
+          return true;
+        }
+      } else if (valThis == "") {
+        return true;
+      }
+
+      return false;
     },
     openCloseSideBar: function () {
       this.sideBar = !this.sideBar;
-      if (!this.sideBar) {
-      }
     },
   },
 };
 </script>
 
 <style>
-.translate-enter-active, .translate-leave-active {
+.translate-enter-active,
+.translate-leave-active {
   transition: right -300px;
-  transition-duration: 2s;}
-.translate-enter, .translate-leave-to {
-    transform: translateX(-300px);
+  transition-duration: 2s;
+}
+.translate-enter,
+.translate-leave-to {
+  transform: translateX(-300px);
 }
 button {
-    background-color: #79adf1 !important;
+  background-color: #79adf1 !important;
   position: absolute;
   border: none;
   height: 40px;
@@ -79,8 +133,12 @@ button {
   cursor: pointer;
   transition: left 2s;
 }
-.toOpen{
-    left: 30px;
+.search {
+  border: 2px solid black;
+  border-radius: 5px;
+}
+.toOpen {
+  left: 30px;
 }
 .map_filters .brand {
   /*background-color: #9be3ff;*/
