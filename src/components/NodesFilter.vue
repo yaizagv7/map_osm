@@ -11,16 +11,13 @@
               :key="item.name"
               @click="item.isOpen = !item.isOpen"
             >
-              <div v-show="menu_filter(item)" class="menu1" :class="item.icon">{{ item.name }}</div>
-              <ul
-                class="menu2"
-              >
-                <li
-                v-show="item.isOpen"
-                  v-for="child in item.children"
-                  :key="child.name"
-                >
-                  <div v-show="childFilter(child,item)" 
+              <div v-show="menu_filter(item)" class="menu1" :class="item.icon">
+                {{ item.name }}
+              </div>
+              <ul class="menu2" v-show="item.isOpen">
+                <li v-for="child in item.children" :key="child.name">
+                  <div
+                    v-show="childFilter(child, item) && item.isOpen"
                     @click.stop.prevent="$emit('launch-query', child.tags)"
                     :class="['map_filter', child.icon]"
                   >
@@ -49,34 +46,10 @@ export default {
   data: function () {
     return {
       menu: menu_data,
-      children_filtered: [{}],
       sideBar: false,
       button: true,
       search: "",
     };
-  },
-  computed: {
-    menu_filtered: function () {
-      var valThis = this.search.toLowerCase();
-      if (!valThis || valThis == "") {
-        return this.menu;
-      }
-      return this.menu.filter((item) =>
-        item.name.toLowerCase().includes(valThis)
-      );
-    },
-    children_filter: function(){
-      for(let item in this.menu){
-        this.children_filtered.push(item.children);
-      }
-      var valThis = this.search.toLowerCase();
-      if (!valThis || valThis == "") {
-        return this.children_filtered;
-      }
-      return this.children_filtered.filter((item) =>
-        item.name.toLowerCase().includes(valThis)
-      );
-    }
   },
   methods: {
     menu_filter: function (item) {
@@ -84,17 +57,18 @@ export default {
       if (!valThis || valThis == "") {
         return true;
       }
-      if(item.name.toLowerCase().includes(valThis)){
+      if (item.name.toLowerCase().includes(valThis)) {
         return true;
       }
-       return false;
-      
+      return false;
     },
-    childFilter(child,item) {
+    childFilter(child, item) {
       var valThis = this.search.toLowerCase();
       if (valThis != "") {
         if (child.name.toLowerCase().includes(valThis)) {
-          item.isOpen = true;
+          return true;
+        }
+        if (item.name.toLowerCase().includes(valThis)) {
           return true;
         }
       } else if (valThis == "") {

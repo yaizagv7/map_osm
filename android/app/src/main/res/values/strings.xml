@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">moovemap</string>
+    <string name="title_activity_main">moovemap</string>
+    <string name="package_name">com.moovity.test1moovemap</string>
+    <string name="custom_url_scheme">com.moovity.test1moovemap</string>
+</resources>
