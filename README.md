@@ -26,7 +26,8 @@ Seguir el tutorial [Capacitor: de Vue a APK]( https://gerardofloresgr.medium.com
 
 ## OSM Tags & data
 
-Las etiquetas de búsqueda y las opciones del menú se encuentran en el directorio **src/menu-data.json**
+Las etiquetas de búsqueda y las opciones del menú se encuentran en el directorio **src/menu-data.json**.
+
 Ejemplos ya añadidos:
 
 | Title in UI     |    OSM Tag                | Note |
