@@ -146,7 +146,7 @@ button {
   width: 15px;
   height: 15px;
   left: 20px;
-  top: 10.4%;
+  top: 80px;
   transform: translateY(-50%);
 }
 .toOpen {
