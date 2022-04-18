@@ -1,43 +1,63 @@
 <template>
-  <div class="node_info">
-    <div class="icon_node" :class="type_node"></div>
-    <span class="p_close" @click="closePopup">×</span>
-
-    <table>
-      <td class="title data">{{ name_node }}</td>
-      <td class="data" v-for="(item, key) in allTagsRender" :key="key">
-        <tr>
-          <th>
-            {{ key }}
-          </th>
-        </tr>
-        <tr>
-          {{
-            item
-          }}
-        </tr>
-      </td>
-    </table>
-    <table>
-      <tr>
-        <td class="icon" v-for="(item, key) in allTagsIconsRender" :key="key">
-          <div v-if="item == 'Fuera'" class="item no-smoking"></div>
-          <div
-            v-else-if="key == 'Acceso silla de ruedas' && item == 'Si'"
-            class="item wheelchair"
-          ></div>
-          <div
-            v-else-if="key == 'Aire acondicionado' && item == 'Si'"
-            class="item air-conditioner"
-          ></div>
-          <div
-            v-else-if="key == 'Terraza' && item == 'Si'"
-            v-html="icon_HTML_terrace"
-            class="item terrace"
-          ></div>
+  <div>
+    <transition name="translate">
+    <div class="node_info" v-if="sideBar">
+      <div class="icon_node" :class="type_node"></div>
+      <table>
+        <td class="title data">{{ name_node }}</td>
+        <div style="height: 20px"></div>
+        <td class="data" v-for="(item, key) in allTagsRender" :key="key">
+          <tr>
+            <th>
+              {{ key }}
+            </th>
+          
+          <td>
+            {{
+              item
+            }}
+          </td>
+          </tr>
+          <hr style="opacity: 0.1; background-color: black; width:100%; margin-top: 5px; margin-bottom: 15px" />
         </td>
-      </tr>
-    </table>
+      </table>
+      <table>
+        <tr>
+          <td class="icon" v-for="(item, key) in allTagsIconsRender" :key="key">
+            <div v-if="item == 'Fuera'" class="item no-smoking"></div>
+            <div
+              v-else-if="key == 'Acceso silla de ruedas' && item == 'Si'"
+              class="item wheelchair"
+            ></div>
+            <div
+              v-else-if="key == 'Aire acondicionado' && item == 'Si'"
+              class="item air-conditioner"
+            ></div>
+            <div
+              v-else-if="key == 'Terraza' && item == 'Si'"
+              v-html="icon_HTML_terrace"
+              class="item terrace"
+            ></div>
+          </td>
+        </tr>
+      </table>
+      <span class="p_close p_close_node" @click="closePopup">Cerrar</span>
+    </div>
+    </transition>
+    <button v-if="sideBar" @click="openCloseSideBar">
+      <img
+        src="../../public/res/arrows.png"
+        style="width: 20px; height: 20px"
+        alt=""
+      />
+    </button>
+    <button v-else class="toOpen" @click="openCloseSideBar">
+      <img
+        src="../../public/res/arrows.png"
+        style="width: 20px; height: 20px"
+        alt=""
+      />
+    </button>
   </div>
 </template>
 
@@ -59,6 +79,7 @@ export default {
       centre: null,
       name: null,
       info: false,
+      sideBar: true,
     };
   },
   computed: {
@@ -81,7 +102,7 @@ export default {
             this.name_node = this.all_tags[key];
             break;
           case "shop":
-            this.all_tags_fixed["Tipo de establecimiento"] = this.translateItem(
+            this.all_tags_fixed["Categoria"] = this.translateItem(
               this.all_tags[key]
             );
             if (this.all_tags[key] == "hairdresser") {
@@ -89,11 +110,12 @@ export default {
             }
             break;
           case "amenity":
-            if (this.all_tags_fixed["Tipo de establecimiento"]) {
-              this.all_tags_fixed["Tipo de establecimiento"] = this.all_tags_fixed["Tipo de establecimiento"]
-                "/" + this.translateItem(this.all_tags[key]);
+            if (this.all_tags_fixed["Categoria"]) {
+              this.all_tags_fixed["Categoria"] =
+                this.all_tags_fixed["Categoria"];
+              "/" + this.translateItem(this.all_tags[key]);
             } else {
-              this.all_tags_fixed["Tipo de establecimiento"] =
+              this.all_tags_fixed["Categoria"] =
                 this.translateItem(this.all_tags[key]);
             }
             if (this.all_tags[key] == "fuel") {
@@ -202,6 +224,9 @@ export default {
     },
   },
   methods: {
+    openCloseSideBar: function () {
+      this.sideBar = !this.sideBar;
+    },
     translateItem: function (item) {
       switch (item) {
         case "yes":
@@ -249,24 +274,45 @@ export default {
 </script>
 
 <style>
+.translate-enter-active,
+.translate-leave-active {
+  transition: right -300px;
+  transition-duration: 2s;
+}
+.translate-enter,
+.translate-leave-to {
+  transform: translateX(-290px);
+}
 .node_info_tr:hover {
   background: #f6f6f6;
 }
 .node_info {
   max-height: 95vh;
+  width: 280px;
+  height: 98%;
   overflow: auto;
-  background: rgb(241, 250, 255);
+  background: rgb(255, 255, 255);
   box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.3);
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 20px;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 8px;
+  left: 5px;
   padding-top: 40px;
   z-index: 1;
   max-width: 300px;
 }
-
+button {
+  top: 15px;
+}
+.p_close_node {
+  position: relative !important;
+  font-size: 14px !important;
+  border: 2px black solid;
+  border-radius: 25px !important; 
+  padding: 6px 40px 6px 40px;
+  color: black !important;
+}
 .data {
   padding-right: 10px;
   display: flex;
@@ -276,18 +322,25 @@ td .icon {
   padding-right: 10px;
   display: flex;
 }
+tr{
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8px;
+}
 .icon > div {
   margin-right: 10px;
 }
 .title {
+  margin-top: 50px;
   font-size: 20px;
   margin-bottom: 10px;
 }
 .icon_node {
-  opacity: 0.07;
-  width: 90%;
+  margin: 20px;
+  width: 10%;
   position: absolute;
   top: 10px;
+  left: 120px;
   bottom: 10px;
 }
 .item {
@@ -295,8 +348,9 @@ td .icon {
   height: 30px;
   flex-direction: row;
 }
-tr {
-  padding-bottom: 8px;
+table {
+  width: 95%;
+  
 }
 .icon_fuel2 {
   background-image: url("data:image/svg+xml,%3Csvg width='80%' height='80%' viewBox='0 0 15 15' version='1.1' id='fuel' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13,6L13,6v5.5c0,0.2761-0.2239,0.5-0.5,0.5S12,11.7761,12,11.5v-2C12,8.6716,11.3284,8,10.5,8H9V2c0-0.5523-0.4477-1-1-1H2&%23xA;&%23x9;C1.4477,1,1,1.4477,1,2v11c0,0.5523,0.4477,1,1,1h6c0.5523,0,1-0.4477,1-1V9h1.5C10.7761,9,11,9.2239,11,9.5v2&%23xA;&%23x9;c0,0.8284,0.6716,1.5,1.5,1.5s1.5-0.6716,1.5-1.5V5c0-0.5523-0.4477-1-1-1l0,0V2.49C12.9946,2.2178,12.7723,1.9999,12.5,2&%23xA;&%23x9;c-0.2816,0.0047-0.5062,0.2367-0.5015,0.5184C11.9987,2.5289,11.9992,2.5395,12,2.55V5C12,5.5523,12.4477,6,13,6s1-0.4477,1-1&%23xA;&%23x9;s-0.4477-1-1-1 M8,6.5C8,6.7761,7.7761,7,7.5,7h-5C2.2239,7,2,6.7761,2,6.5v-3C2,3.2239,2.2239,3,2.5,3h5C7.7761,3,8,3.2239,8,3.5&%23xA;&%23x9;V6.5z'/%3E%3C/svg%3E");
