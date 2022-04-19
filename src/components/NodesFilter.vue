@@ -53,10 +53,10 @@
       </div>
     </transition>
     <button v-if="sideBar" @click="openCloseSideBar">
-      <img src="../../public/res/arrows.png" style="width: 20px; height: 20px" alt="">
+      <img class="arrows" src="../../public/res/arrows.png" style="width: 20px; height: 20px" alt="">
     </button>
     <button v-else class="toOpen" @click="openCloseSideBar">
-      <img src="../../public/res/arrows.png" style="width: 20px; height: 20px" alt="">
+      <img class="arrows" src="../../public/res/arrows.png" style="width: 20px; height: 20px" alt="">
     </button>
   </div>
 </template>
@@ -113,14 +113,17 @@ export default {
 </script>
 
 <style>
+*{
+  box-sizing: border-box;
+}
 .translate-enter-active,
 .translate-leave-active {
-  transition: right -300px;
+  transition: right -285px;
   transition-duration: 2s;
 }
 .translate-enter,
 .translate-leave-to {
-  transform: translateX(-290px);
+  transform: translateX(-285px);
 }
 button {
   background-color: #000000 !important;
@@ -160,7 +163,7 @@ button {
   transform: translateY(-50%);
 }
 .toOpen {
-  left: 2px;
+  left: 0px;
 }
 .map_filters .brand {
   /*background-color: #9be3ff;*/
@@ -196,7 +199,7 @@ button {
     width: 240px;
   }
   button {
-    left: 230px;
+    left: 245px;
   }
   .map_filter {
     font-size: 11px !important;
@@ -221,6 +224,7 @@ button {
 
 li {
   list-style: none;
+  margin-bottom: 10px;
 }
 .menu1 {
   padding-top: 5px;
@@ -233,6 +237,9 @@ li {
 }
 ul .menu2 {
   padding-left: 0px;
+}
+.arrows {
+  filter: invert(1);
 }
 
 .map_filter {
@@ -263,7 +270,7 @@ ul .menu2 {
 }
 
 .map_filter:hover{
-  border: 1px grey solid;
+  border: 1px rgb(26, 26, 26) solid;
 }
 /*menu 1
 .icon_shop:before,

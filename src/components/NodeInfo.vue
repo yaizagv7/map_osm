@@ -46,6 +46,7 @@
     </transition>
     <button v-if="sideBar" @click="openCloseSideBar">
       <img
+      class="arrows"
         src="../../public/res/arrows.png"
         style="width: 20px; height: 20px"
         alt=""
@@ -53,6 +54,7 @@
     </button>
     <button v-else class="toOpen" @click="openCloseSideBar">
       <img
+      class="arrows"
         src="../../public/res/arrows.png"
         style="width: 20px; height: 20px"
         alt=""
@@ -274,15 +276,6 @@ export default {
 </script>
 
 <style>
-.translate-enter-active,
-.translate-leave-active {
-  transition: right -300px;
-  transition-duration: 2s;
-}
-.translate-enter,
-.translate-leave-to {
-  transform: translateX(-290px);
-}
 .node_info_tr:hover {
   background: #f6f6f6;
 }

@@ -323,8 +323,8 @@ export default {
 <style>
 .main_loading {
   position: fixed !important;
-  bottom: 18px;
-  left: 240px;
+  bottom: 50%;
+  left: 50%;
   z-index: 9;
 }
 .map_root {
