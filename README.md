@@ -24,6 +24,8 @@ De este modo la aplicación usa un servidor de OSM para desarrolladores.
 
 Seguir el tutorial [Capacitor: de Vue a APK]( https://gerardofloresgr.medium.com/capacitor-de-web-a-android-y-ios-con-proyectos-existentes-a59725d7f81d/ )
 
+[Crear apk en Android Studio] (https://code.tutsplus.com/es/tutorials/how-to-generate-apk-and-signed-apk-files-in-android-studio--cms-37927 )
+
 ## OSM Tags & data
 
 Las etiquetas de búsqueda y las opciones del menú se encuentran en el directorio **src/menu-data.json**.

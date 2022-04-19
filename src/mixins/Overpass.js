@@ -56,6 +56,7 @@ export default {
             let tags = [
                 {k: key, v: valor, k2: key2, v2: value2}
             ];
+            //console.log(query.nodeByTagsDouble(tags, bbox).body);
             return query.nodeByTagsDouble(tags, bbox).body;
         },
         fetchAmenity: function (center, callback, errorCallback, key, valor) {

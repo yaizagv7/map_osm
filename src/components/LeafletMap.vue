@@ -108,7 +108,8 @@
                     fr: {lat: 48.84, lng: 2.35, zoom: 13},
                     pt: {lat: 38.72, lng: -9.14, zoom: 14},
                     de: {lat: 52.5, lng: 13.38, zoom: 13},
-                    it: {lat: 41.87, lng: 12.49, zoom: 13}
+                    it: {lat: 41.87, lng: 12.49, zoom: 13},
+                    es: {lat: 42.34, lng: -3.7, zoom: 13}
                 };
                 if(lang in coords) {
                     return coords[lang];
@@ -272,7 +273,7 @@
         background:#eee;
     }
     .orm_position {
-            top:140px;
+        top:140px;
         right:20px;
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='50' height='50' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='24.64' cy='25.08' r='9.53' stroke='%23000' stroke-width='2.38'/%3E%3Cpath fill='%23000' d='M23.45 9.6h2.38v5.95h-2.38zM23.45 34.61h2.38v5.95h-2.38zM40.12 23.88v2.38h-5.95v-2.38zM15.12 23.9v2.37H9.17V23.9z'/%3E%3Ccircle cx='24.64' cy='25.08' r='4.76' fill='%23000'/%3E%3C/svg%3E");
     }

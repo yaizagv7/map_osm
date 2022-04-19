@@ -48,6 +48,9 @@
     <v-snackbar v-model="zoomMessage" :timeout="0" top>
       {{ $t("message.zoomIn") }}
     </v-snackbar>
+    <div class="results">
+      Resultados: {{this.results_count}}
+    </div>
   </div>
 </template>
 
@@ -82,6 +85,7 @@ export default {
       layer: null,
       lastData: null,
       labels: [],
+      results_count: 0
     };
   },
   components: {
@@ -108,7 +112,8 @@ export default {
         return;
       }
     //   console.log("datos");
-    //   console.log(data);
+     console.log(data);
+     this.results_count = data.elements.length;
       // console.log("filter");
       // console.log(filter);
       let component = this;
@@ -132,7 +137,7 @@ export default {
       this.layer = L.geoJson(ovData, {
         style: function () {
           //switch case para mas opciones
-          var color = "#80B4FF"; // blue
+          var color = "#FFFFFF"; // white
           return {
             opacity: 1,
             fillOpacity: 1,
@@ -204,7 +209,7 @@ export default {
           tags[0][0],
           tags[0][1],
           tags[1][0],
-            tags[1][1]
+          tags[1][1]
         );
       }
     },
@@ -318,9 +323,8 @@ export default {
 <style>
 .main_loading {
   position: fixed !important;
-  bottom: 140px;
-  bottom: 200px;
-  left: 20px;
+  bottom: 18px;
+  left: 240px;
   z-index: 9;
 }
 .map_root {
@@ -441,5 +445,13 @@ export default {
 }
 .node_type .btn {
   margin-right: 30px;
+}
+.results{
+  width: 150px;
+  height: 20px;
+  position: absolute;
+  bottom: 15;
+  left: 20px;
+  text-align: left;
 }
 </style>

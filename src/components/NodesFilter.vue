@@ -5,7 +5,6 @@
         <div class="title-brand"><span class="brand">Moove Map</span></div>
         <div class="input-wrapper">
           <input type="search" class="search" placeholder="Buscar" />
-
           <svg
             xmlns="http://www.w3.org/2000/svg"
             class="input-icon"
@@ -39,6 +38,13 @@
                   >
                     {{ child.name }}
                   </div>
+                  <!--<div v-else class="item_selected"
+                    v-show="childFilter(child, item) && item.isOpen"
+                    @click.stop.prevent="$emit('launch-query', child.tags)"
+                    :class="['map_filter', child.icon]"
+                  >
+                    {{ child.name }}
+                  </div>-->
                 </li>
               </ul>
             </li>
@@ -67,9 +73,13 @@ export default {
       sideBar: false,
       button: true,
       search: "",
+      toggle_selected: "",
     };
   },
   methods: {
+    toggleSelected: function (){
+      this.item_selected = !this.item_selected;
+    },
     menu_filter: function (item) {
       var valThis = this.search.toLowerCase();
       if (!valThis || valThis == "") {
@@ -120,7 +130,7 @@ button {
   width: 35px;
   border-radius: 0 50% 50% 0 !important;
   box-shadow: 0px 1px 4px 1px rgba(0, 0, 0, 0.3);
-  left: 286px;
+  left: 285px;
   top: 15px;
   cursor: pointer;
   transition: left 2s;
@@ -246,10 +256,14 @@ ul .menu2 {
   font-size: 14px;
 }
 
-.map_filter:hover {
+.map_filter:active {
   filter: invert(1);
   /*box-shadow: 0px 1px 4px 1px rgb(0, 0, 0);*/
   font-weight: bold;
+}
+
+.map_filter:hover{
+  border: 1px grey solid;
 }
 /*menu 1
 .icon_shop:before,
