@@ -447,11 +447,12 @@ export default {
   margin-right: 30px;
 }
 .results{
-  width: 150px;
+  width: 120px;
   height: 20px;
   position: absolute;
-  bottom: 15;
-  left: 20px;
+  bottom: 17px;
+  right: 20px;
   text-align: left;
+  background-color: #eee;
 }
 </style>

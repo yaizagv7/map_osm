@@ -23,6 +23,20 @@
 						"tags": [
 							["shop","books"]
 						]
+					},
+					{
+						"name": "Cosméticos",
+						"icon": "icon_cosmetic",
+						"tags": [
+							["shop","cosmetics"]
+						]
+					},
+					{
+						"name": "Tiendas de zapatos",
+						"icon": "icon_shoe",
+						"tags": [
+							["shop","shoes"]
+						]
 					}],
 		"isOpen" :false
 	},
@@ -58,6 +72,81 @@
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "mexican"]
+				]
+			},{
+				"name": "Restaurantes sushi",
+				"icon": "icon_sushi",
+				"tags": [
+					["amenity","restaurant"],
+					["cuisine", "sushi"]
+				]
+			},{
+				"name": "Restaurantes italianos",
+				"icon": "icon_ita",
+				"tags": [
+					["amenity","restaurant"],
+					["cuisine", "italian"]
+				]
+			}],
+		"isOpen":false
+	},
+	{
+		"id": 3,
+		"name": "Turismo",
+		"icon": "icon_tourism",
+		"children": [{
+				"name": "Hoteles",
+				"icon": "icon_h",
+				"tags": [
+					["tourism","hotel"]
+				]
+			}, 
+			{
+				"name": "Hostales",
+				"icon": "icon_h",
+				"tags": [
+					["tourism","hostel"]
+				]
+			}, 
+			{
+				"name": "Obras de arte",
+				"icon": "icon_artwork",
+				"tags": [
+					["tourism","artwork"]
+				]
+			},{
+				"name": "Miradores",
+				"icon": "icon_view",
+				"tags": [
+					["tourism","viewpoint"]
+				]
+			},{
+				"name": "Puntos de informacion",
+				"icon": "icon_infopoint",
+				"tags": [
+					["tourism","information"]
+				]
+			}],
+		"isOpen":false
+	},
+	{
+		"id": 4,
+		"name": "Aparcamiento",
+		"icon": "icon_p",
+		"children": [{
+				"name": "Aparcamientos superficie",
+				"icon": "icon_p",
+				"tags": [
+					["parking","surface"],
+					["access","yes"]
+				]
+			}, 
+			{
+				"name": "Aparcamientos subterráneos",
+				"icon": "icon_p",
+				"tags": [
+					["parking","underground"],
+					["access","yes"]
 				]
 			}],
 		"isOpen":false

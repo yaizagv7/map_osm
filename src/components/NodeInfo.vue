@@ -1,52 +1,68 @@
 <template>
   <div>
     <transition name="translate">
-    <div class="node_info" v-if="sideBar">
-      <div class="icon_node" :class="type_node"></div>
-      <table>
-        <td class="title data">{{ name_node }}</td>
-        <div style="height: 20px"></div>
-        <td class="data" v-for="(item, key) in allTagsRender" :key="key">
+      <div class="node_info" v-if="sideBar">
+        <div class="icon_node" :class="type_node"></div>
+        <table>
+          <td class="title data">{{ name_node }}</td>
+          <div style="height: 20px"></div>
+          <td class="data" v-for="(item, key) in allTagsRender" :key="key">
+            <tr>
+              <th>
+                {{ key }}
+              </th>
+
+              <td v-if="key=='Página web'" class="item1">
+                <a :href="item" target="_blank" rel="noopener noreferrer"> Ver </a>
+              </td>
+              <td v-else-if="key=='Email'" class="item1">
+                <a :href="email+item+email2" target="_blank">Enviar</a>
+              </td>
+              <td v-else class="item1">
+                {{ item }}
+              </td>
+            </tr>
+            <hr
+              style="
+                opacity: 0.1;
+                background-color: black;
+                width: 100%;
+                margin-top: 5px;
+                margin-bottom: 15px;
+              "
+            />
+          </td>
+        </table>
+        <table>
           <tr>
-            <th>
-              {{ key }}
-            </th>
-          
-          <td>
-            {{
-              item
-            }}
-          </td>
+            <td
+              class="icon"
+              v-for="(item, key) in allTagsIconsRender"
+              :key="key"
+            >
+              <div v-if="item == 'Fuera'" class="item no-smoking"></div>
+              <div
+                v-else-if="key == 'Acceso silla de ruedas' && item == 'Si'"
+                class="item wheelchair"
+              ></div>
+              <div
+                v-else-if="key == 'Aire acondicionado' && item == 'Si'"
+                class="item air-conditioner"
+              ></div>
+              <div
+                v-else-if="key == 'Terraza' && item == 'Si'"
+                v-html="icon_HTML_terrace"
+                class="item terrace"
+              ></div>
+            </td>
           </tr>
-          <hr style="opacity: 0.1; background-color: black; width:100%; margin-top: 5px; margin-bottom: 15px" />
-        </td>
-      </table>
-      <table>
-        <tr>
-          <td class="icon" v-for="(item, key) in allTagsIconsRender" :key="key">
-            <div v-if="item == 'Fuera'" class="item no-smoking"></div>
-            <div
-              v-else-if="key == 'Acceso silla de ruedas' && item == 'Si'"
-              class="item wheelchair"
-            ></div>
-            <div
-              v-else-if="key == 'Aire acondicionado' && item == 'Si'"
-              class="item air-conditioner"
-            ></div>
-            <div
-              v-else-if="key == 'Terraza' && item == 'Si'"
-              v-html="icon_HTML_terrace"
-              class="item terrace"
-            ></div>
-          </td>
-        </tr>
-      </table>
-      <span class="p_close p_close_node" @click="closePopup">Cerrar</span>
-    </div>
+        </table>
+        <span class="p_close p_close_node" @click="closePopup">Cerrar</span>
+      </div>
     </transition>
     <button v-if="sideBar" @click="openCloseSideBar">
       <img
-      class="arrows"
+        class="arrows"
         src="../../public/res/arrows.png"
         style="width: 20px; height: 20px"
         alt=""
@@ -54,7 +70,7 @@
     </button>
     <button v-else class="toOpen" @click="openCloseSideBar">
       <img
-      class="arrows"
+        class="arrows"
         src="../../public/res/arrows.png"
         style="width: 20px; height: 20px"
         alt=""
@@ -82,6 +98,8 @@ export default {
       name: null,
       info: false,
       sideBar: true,
+      email: "mailto:",
+      email2: "?subject=Mail from "
     };
   },
   computed: {
@@ -111,14 +129,18 @@ export default {
               this.type_node = "icon_hairdresser2";
             }
             break;
+          case "tourism":
+            this.type_node = "icon_h";
+            break;
           case "amenity":
             if (this.all_tags_fixed["Categoria"]) {
               this.all_tags_fixed["Categoria"] =
                 this.all_tags_fixed["Categoria"];
               "/" + this.translateItem(this.all_tags[key]);
             } else {
-              this.all_tags_fixed["Categoria"] =
-                this.translateItem(this.all_tags[key]);
+              this.all_tags_fixed["Categoria"] = this.translateItem(
+                this.all_tags[key]
+              );
             }
             if (this.all_tags[key] == "fuel") {
               this.type_node = "icon_fuel2";
@@ -129,6 +151,10 @@ export default {
             if (this.all_tags[key] == "bar") {
               this.type_node = "icon_bar2";
             }
+             if (this.all_tags[key] == "parking") {
+              this.type_node = "icon_p";
+            }
+
             break;
           case "brand":
             this.all_tags_fixed["Marca"] = this.translateItem(
@@ -178,6 +204,46 @@ export default {
             break;
           case "indoor_seating":
             this.all_tags_fixed["Sillas dentro"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "fee":
+            this.all_tags_fixed["Tarifa"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "capacity":
+            this.all_tags_fixed["Capacidad"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "maxheight":
+            this.all_tags_fixed["Altura máxima"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+            case "contact:email":
+            this.all_tags_fixed["Email"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+            case "contact:phone":
+            this.all_tags_fixed["Teléfono"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+            case "contact:website":
+            this.all_tags_fixed["Página web"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+            case "rooms":
+            this.all_tags_fixed["Habitaciones"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+            case "stars":
+            this.all_tags_fixed["Estrellas"] = this.translateItem(
               this.all_tags[key]
             );
             break;
@@ -255,6 +321,10 @@ export default {
         case "books":
           item = "Tienda de libros";
           return item;
+        case "parking_entrance":
+          return "Entrada de parking";
+        case "below_default":
+          return ">1.9";  
         default:
           return item;
       }
@@ -295,6 +365,33 @@ export default {
   z-index: 1;
   max-width: 300px;
 }
+/* Estilos para motores Webkit y blink (Chrome, Safari, Opera... )*/
+
+.node_info::-webkit-scrollbar {
+    -webkit-appearance: none;
+}
+
+.node_info::-webkit-scrollbar:vertical {
+    width:10px;
+}
+
+.node_info::-webkit-scrollbar-button:increment,.contenedor::-webkit-scrollbar-button {
+    display: none;
+} 
+
+.node_info::-webkit-scrollbar:horizontal {
+    height: 10px;
+}
+
+.node_info::-webkit-scrollbar-thumb {
+    background-color: #797979;
+    border-radius: 20px;
+    border: 2px solid #f1f2f3;
+}
+
+.node_info::-webkit-scrollbar-track {
+    border-radius: 10px;  
+}
 button {
   top: 15px;
 }
@@ -302,7 +399,7 @@ button {
   position: relative !important;
   font-size: 14px !important;
   border: 2px black solid;
-  border-radius: 25px !important; 
+  border-radius: 25px !important;
   padding: 6px 40px 6px 40px;
   color: black !important;
 }
@@ -315,7 +412,7 @@ td .icon {
   padding-right: 10px;
   display: flex;
 }
-tr{
+tr {
   display: flex;
   justify-content: space-between;
   padding-bottom: 8px;
@@ -341,9 +438,16 @@ tr{
   height: 30px;
   flex-direction: row;
 }
+.item1{
+  text-align: right;
+  max-width: 140px;
+  overflow-wrap: break-word;
+}
+a {
+  color: black !important;
+}
 table {
   width: 95%;
-  
 }
 .icon_fuel2 {
   background-image: url("data:image/svg+xml,%3Csvg width='80%' height='80%' viewBox='0 0 15 15' version='1.1' id='fuel' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13,6L13,6v5.5c0,0.2761-0.2239,0.5-0.5,0.5S12,11.7761,12,11.5v-2C12,8.6716,11.3284,8,10.5,8H9V2c0-0.5523-0.4477-1-1-1H2&%23xA;&%23x9;C1.4477,1,1,1.4477,1,2v11c0,0.5523,0.4477,1,1,1h6c0.5523,0,1-0.4477,1-1V9h1.5C10.7761,9,11,9.2239,11,9.5v2&%23xA;&%23x9;c0,0.8284,0.6716,1.5,1.5,1.5s1.5-0.6716,1.5-1.5V5c0-0.5523-0.4477-1-1-1l0,0V2.49C12.9946,2.2178,12.7723,1.9999,12.5,2&%23xA;&%23x9;c-0.2816,0.0047-0.5062,0.2367-0.5015,0.5184C11.9987,2.5289,11.9992,2.5395,12,2.55V5C12,5.5523,12.4477,6,13,6s1-0.4477,1-1&%23xA;&%23x9;s-0.4477-1-1-1 M8,6.5C8,6.7761,7.7761,7,7.5,7h-5C2.2239,7,2,6.7761,2,6.5v-3C2,3.2239,2.2239,3,2.5,3h5C7.7761,3,8,3.2239,8,3.5&%23xA;&%23x9;V6.5z'/%3E%3C/svg%3E");
