@@ -321,11 +321,27 @@ export default {
 </script>
 
 <style>
+@media screen and (max-width: 500px) {
+  .results {
+    right: 5px !important;
+    font-weight: bold;
+  }
+}
+.results{
+  width: 120px;
+  height: 20px;
+  position: absolute;
+  bottom: 17px;
+  right: 20px;
+  text-align: center;
+  background-color: #eee;
+}
 .main_loading {
   position: fixed !important;
   bottom: 50%;
   left: 50%;
   z-index: 9;
+  color: black;
 }
 .map_root {
   height: 100%;
@@ -445,14 +461,5 @@ export default {
 }
 .node_type .btn {
   margin-right: 30px;
-}
-.results{
-  width: 120px;
-  height: 20px;
-  position: absolute;
-  bottom: 17px;
-  right: 20px;
-  text-align: left;
-  background-color: #eee;
 }
 </style>

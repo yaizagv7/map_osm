@@ -44,10 +44,11 @@
 </script>
 
 <style>
+*{
+ box-sizing: content-box;   
+}
     html,body {
         height: 100%;
-        box-sizing: border-box;
-        
     }
     .v-item-group.v-bottom-nav--fixed {
         z-index: 11;

@@ -87,6 +87,19 @@
 					["amenity","restaurant"],
 					["cuisine", "italian"]
 				]
+			},{
+				"name": "Kebabs",
+				"icon": "icon_kebab",
+				"tags": [
+					["amenity","fast_food"],
+					["cuisine", "kebab"]
+				]
+			},{
+				"name": "Pizzerias",
+				"icon": "icon_pizza",
+				"tags": [
+					["cuisine", "pizza"]
+				]
 			}],
 		"isOpen":false
 	},
@@ -147,6 +160,26 @@
 				"tags": [
 					["parking","underground"],
 					["access","yes"]
+				]
+			}],
+		"isOpen":false
+	},{
+		"id": 5,
+		"name": "Transporte",
+		"icon": "icon_trans",
+		"children": [{
+				"name": "Paradas de taxi",
+				"icon": "icon_p",
+				"tags": [
+					["amenity","taxi"]
+				]
+			}, 
+			{
+				"name": "Paradas de autobus",
+				"icon": "icon_p",
+				"tags": [
+					["public_transport","platform"],
+					["bus","yes"]
 				]
 			}],
 		"isOpen":false
