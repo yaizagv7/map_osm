@@ -4,6 +4,7 @@
       <div class="node_info" v-if="sideBar">
         <div class="icon_node" :class="type_node"></div>
         <table>
+          <tr><td class="category_node">{{category_node}}</td></tr>
           <td class="title data">{{ name_node }}</td>
           <div style="height: 20px"></div>
           <td class="data" v-for="(item, key) in allTagsRender" :key="key">
@@ -97,6 +98,7 @@ export default {
       all_tags_icons: {},
       name_node: null,
       address: null,
+      category_node: null,
       node_type: null,
       node_id: null,
       amenity: null,
@@ -163,7 +165,7 @@ export default {
             this.name_node = this.all_tags[key];
             break;
           case "shop":
-            this.all_tags_fixed["Categoria"] = this.translateItem(
+            this.category_node = this.translateItem(
               this.all_tags[key]
             );
             if (this.all_tags[key] == "hairdresser") {
@@ -187,7 +189,7 @@ export default {
                 this.all_tags_fixed["Categoria"];
               "/" + this.translateItem(this.all_tags[key]);
             } else {*/
-            this.all_tags_fixed["Categoria"] = this.translateItem(
+            this.category_node = this.translateItem(
               this.all_tags[key]
             );
 
@@ -380,6 +382,10 @@ export default {
           return "Jarrón decorativo";
         case "relief":
           return "Relieve";
+        case "optician":
+          return "Óptica";
+        case "bar":
+          return "Bar";
         default:
           return item;
       }
@@ -485,9 +491,15 @@ tr {
   margin-right: 10px;
 }
 .title {
-  margin-top: 50px;
   font-size: 20px;
   margin-bottom: 10px;
+}
+.category_node {
+  margin-top: 50px;
+  text-align: center;
+  width: 100%;
+  font-size: 12px;
+  color: gray;
 }
 .icon_node {
   margin: 20px;

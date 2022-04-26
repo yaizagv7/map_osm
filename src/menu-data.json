@@ -8,35 +8,48 @@
 						"icon": "icon_hairdresser",
 						"tags": [
 							["shop","hairdresser"]
-						]
+						],
+						"selected": false
 					}, 
 					{
 						"name": "Gasolineras",
 						"icon": "icon_fuel",
 						"tags": [
 							["amenity","fuel"]
-						]
+						],
+						"selected": false
 					},
 					{
 						"name": "Librerías",
 						"icon": "icon_book",
 						"tags": [
 							["shop","books"]
-						]
+						],
+						"selected": false
 					},
 					{
 						"name": "Cosméticos",
 						"icon": "icon_cosmetic",
 						"tags": [
 							["shop","cosmetics"]
-						]
+						],
+						"selected": false
 					},
 					{
 						"name": "Tiendas de zapatos",
 						"icon": "icon_shoe",
 						"tags": [
 							["shop","shoes"]
-						]
+						],
+						"selected": false
+					},
+					{
+						"name": "Ópticas",
+						"icon": "icon_op",
+						"tags": [
+							["shop","optician"]
+						],
+						"selected": false
 					}],
 		"isOpen" :false
 	},
@@ -49,7 +62,8 @@
 				"icon": "icon_bar",
 				"tags": [
 					["amenity","bar"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Restaurantes chinos",
@@ -57,7 +71,8 @@
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "chinese"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Restaurantes locales",
@@ -65,41 +80,54 @@
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "regional"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Restaurantes mexicanos",
 				"icon": "icon_mex",
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "mexican"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Restaurantes sushi",
 				"icon": "icon_sushi",
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "sushi"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Restaurantes italianos",
 				"icon": "icon_ita",
 				"tags": [
 					["amenity","restaurant"],
 					["cuisine", "italian"]
-				]
+				],
+				"selected": false
+			},{
+				"name": "Opciones veggie/vegan",
+				"icon": "icon_veg",
+				"tags": [
+					["diet:vegan","yes"]
+				],
+				"selected": false
 			},{
 				"name": "Kebabs",
 				"icon": "icon_kebab",
 				"tags": [
 					["amenity","fast_food"],
 					["cuisine", "kebab"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Pizzerias",
 				"icon": "icon_pizza",
 				"tags": [
 					["cuisine", "pizza"]
-				]
+				],
+				"selected": false
 			}],
 		"isOpen":false
 	},
@@ -112,33 +140,38 @@
 				"icon": "icon_h",
 				"tags": [
 					["tourism","hotel"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Hostales",
 				"icon": "icon_h",
 				"tags": [
 					["tourism","hostel"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Obras de arte",
 				"icon": "icon_artwork",
 				"tags": [
 					["tourism","artwork"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Miradores",
 				"icon": "icon_view",
 				"tags": [
 					["tourism","viewpoint"]
-				]
+				],
+				"selected": false
 			},{
 				"name": "Puntos de informacion",
 				"icon": "icon_infopoint",
 				"tags": [
 					["tourism","information"]
-				]
+				],
+				"selected": false
 			}],
 		"isOpen":false
 	},
@@ -152,7 +185,8 @@
 				"tags": [
 					["parking","surface"],
 					["access","yes"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Aparcamientos subterráneos",
@@ -160,7 +194,16 @@
 				"tags": [
 					["parking","underground"],
 					["access","yes"]
-				]
+				],
+				"selected": false
+			}, 
+			{
+				"name": "Carga coches eléctricos",
+				"icon": "icon_p",
+				"tags": [
+					["amenity","charging_station"]
+				],
+				"selected": false
 			}],
 		"isOpen":false
 	},{
@@ -172,7 +215,8 @@
 				"icon": "icon_p",
 				"tags": [
 					["amenity","taxi"]
-				]
+				],
+				"selected": false
 			}, 
 			{
 				"name": "Paradas de autobus",
@@ -180,7 +224,8 @@
 				"tags": [
 					["public_transport","platform"],
 					["bus","yes"]
-				]
+				],
+				"selected": false
 			}],
 		"isOpen":false
 	}

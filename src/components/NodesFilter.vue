@@ -44,22 +44,23 @@
               </div>
               <ul class="menu2" v-show="item.isOpen">
                 <li v-for="child in item.children" :key="child.name">
-                  <div
+                  <div v-if="!child.selected"
                     v-show="childFilter(child, item) && item.isOpen"
                     @click.stop.prevent="
-                      $emit('launch-query', child.tags), (sideBar = false)
+                      $emit('launch-query', child.tags), (sideBar = false), toggleSelected(child, item.children)
                     "
                     :class="['map_filter', child.icon]"
                   >
                     {{ child.name }}
                   </div>
-                  <!--<div v-else class="item_selected"
+                  <div v-else class="item_selected"
                     v-show="childFilter(child, item) && item.isOpen"
-                    @click.stop.prevent="$emit('launch-query', child.tags)"
+                    @click.stop.prevent="toggleSelected(child)"
                     :class="['map_filter', child.icon]"
                   >
-                    {{ child.name }}
-                  </div>-->
+                    <span>{{ child.name  + "   "}}</span>
+                    <span class="results">{{ " " + $parent.results_count }}</span>
+                  </div>
                 </li>
               </ul>
             </li>
@@ -102,8 +103,11 @@ export default {
     };
   },
   methods: {
-    toggleSelected: function () {
-      this.item_selected = !this.item_selected;
+    toggleSelected: function (child, children) {
+      children.forEach(element => {
+        element.selected = false;
+      });
+      child.selected = true;
     },
     menu_filter: function (item) {
       var valThis = this.search.toLowerCase();
@@ -193,6 +197,16 @@ button {
   top: 15px;
   cursor: pointer;
   transition: left 2s;
+}
+.item_selected {
+  filter: invert(1);
+  justify-content: space-between !important;
+  font-weight: bold;
+}
+.results{
+  color: gray;
+  margin-right: 30px;
+  font-weight: normal !important;
 }
 .search {
   margin-left: 35px;
@@ -334,11 +348,11 @@ ul .menu2 {
   box-sizing: border-box;
 }
 
-.map_filter:active {
+/*.map_filter:active {
   filter: invert(1);
-  /*box-shadow: 0px 1px 4px 1px rgb(0, 0, 0);*/
+  /*box-shadow: 0px 1px 4px 1px rgb(0, 0, 0);
   font-weight: bold;
-}
+}*/
 
 .map_filter:hover {
   border: 1px rgb(26, 26, 26) solid;

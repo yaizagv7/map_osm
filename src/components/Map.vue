@@ -15,7 +15,7 @@
     </div>
     <v-progress-circular
       indeterminate
-      color="primary"
+      color="black"
       v-if="loading"
       class="main_loading"
     ></v-progress-circular>
@@ -48,9 +48,9 @@
     <v-snackbar v-model="zoomMessage" :timeout="0" top>
       {{ $t("message.zoomIn") }}
     </v-snackbar>
-    <div class="results">
+    <!--<div class="results">
       Resultados: {{this.results_count}}
-    </div>
+    </div>-->
   </div>
 </template>
 
@@ -322,26 +322,13 @@ export default {
 
 <style>
 @media screen and (max-width: 500px) {
-  .results {
-    right: 5px !important;
-    font-weight: bold;
-  }
-}
-.results{
-  width: 120px;
-  height: 20px;
-  position: absolute;
-  bottom: 17px;
-  right: 20px;
-  text-align: center;
-  background-color: #eee;
+
 }
 .main_loading {
   position: fixed !important;
   bottom: 50%;
   left: 50%;
   z-index: 9;
-  color: black;
 }
 .map_root {
   height: 100%;
