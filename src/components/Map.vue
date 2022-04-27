@@ -111,8 +111,8 @@ export default {
       if (!data) {
         return;
       }
-    //   console.log("datos");
-     console.log(data);
+      //console.log("datos");
+      //console.log(data);
      this.results_count = data.elements.length;
       // console.log("filter");
       // console.log(filter);

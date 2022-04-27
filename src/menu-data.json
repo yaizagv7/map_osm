@@ -199,7 +199,7 @@
 			}, 
 			{
 				"name": "Carga coches eléctricos",
-				"icon": "icon_p",
+				"icon": "icon_el_car",
 				"tags": [
 					["amenity","charging_station"]
 				],
@@ -212,7 +212,7 @@
 		"icon": "icon_trans",
 		"children": [{
 				"name": "Paradas de taxi",
-				"icon": "icon_p",
+				"icon": "icon_taxi",
 				"tags": [
 					["amenity","taxi"]
 				],
@@ -220,7 +220,7 @@
 			}, 
 			{
 				"name": "Paradas de autobus",
-				"icon": "icon_p",
+				"icon": "icon_bus",
 				"tags": [
 					["public_transport","platform"],
 					["bus","yes"]

@@ -171,6 +171,9 @@ export default {
             if (this.all_tags[key] == "hairdresser") {
               this.type_node = "icon_hairdresser2";
             }
+            if (this.all_tags[key] == "cosmetics") {
+              this.type_node = "icon_cosmetic2";
+            }
             break;
           case "tourism":
             if (
@@ -181,6 +184,12 @@ export default {
             }
             if (this.all_tags[key] == "artwork") {
               this.type_node = "icon_artwork2";
+            }
+            if (this.all_tags[key] == "viewpoint") {
+              this.type_node = "icon_view2";
+            }
+            if (this.all_tags[key] == "information") {
+              this.type_node = "icon_infopoint2";
             }
             break;
           case "amenity":
