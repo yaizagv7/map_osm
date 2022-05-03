@@ -395,6 +395,8 @@ export default {
           return "Óptica";
         case "bar":
           return "Bar";
+        case "fast_food":
+          return "Comida rápida";
         default:
           return item;
       }

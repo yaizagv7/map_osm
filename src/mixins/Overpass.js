@@ -59,6 +59,13 @@ export default {
             //console.log(query.nodeByTagsDouble(tags, bbox).body);
             return query.nodeByTagsDouble(tags, bbox).body;
         },
+        buildQueryRelation: function (center, valor) {
+            let bbox = this.bboxFromCenter(center);
+            let query = new OverpassQuery();
+            let tag = valor;
+            //console.log(query.nodeByTagsDouble(tags, bbox).body);
+            return query.relationByTag(tag).body;
+        },
         fetchAmenity: function (center, callback, errorCallback, key, valor) {
             fetch(process.env.VUE_APP_OVERPASS_URL, {
                 method: 'POST',
@@ -87,10 +94,26 @@ export default {
                 .then(callback)
                 .catch(errorCallback);
         },
+        fetchRelation: function (center, callback, errorCallback, value) {
+            fetch(process.env.VUE_APP_OVERPASS_URL, {
+                method: 'POST',
+                body: this.buildQueryRelation(center, value)
+            })
+                .then(function (response) {
+                    if(!response.ok) {
+                        throw new Error(response.status);
+                    }
+                    return response.json();
+                })
+                .then(callback)
+                .catch(errorCallback);
+        },
         fetchNode: function (params, callback) {
             let query = new OverpassQuery();
             if(params.type === 'way') {
                 query.wayById(params.node);
+            }else if(params.type == 'relation'){
+                query.relationById(params.node);
             }
             else {
                 query.nodeById(params.node);

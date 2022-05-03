@@ -10,6 +10,10 @@ export default class OverpassQuery {
         this.query = '  way('+id+');\n';
         return this;
     }
+    relationById(id) {
+        this.query = '  rel('+id+');\n';
+        return this;
+    }
     nodeByTags(tags, bbox) {
         // tags.forEach((tag) => this.query += '  node["'+tag.k+'"]('+bbox+');\n');
         // tags.forEach((tag) => this.query += '  way["'+tag.k+'"]('+bbox+');\n');
@@ -20,6 +24,10 @@ export default class OverpassQuery {
     nodeByTagsDouble(tags, bbox) {
         tags.forEach((tag) => this.query += '  node["'+tag.k+'"="'+tag.v+'"]["'+tag.k2+'"="'+tag.v2+'"]('+bbox+');\n');
         tags.forEach((tag) => this.query += '  way["'+tag.k+'"="'+tag.v+'"]["'+tag.k2+'"="'+tag.v2+'"]('+bbox+');\n');
+        return this;
+    }
+    relationByTag(tag) {
+        this.query += '  rel("'+tag.v+'");\n';
         return this;
     }
     get qlString() {

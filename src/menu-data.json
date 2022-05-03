@@ -50,6 +50,47 @@
 							["shop","optician"]
 						],
 						"selected": false
+					},{
+						"name": "Casa",
+						"icon": "icon_casa",
+						"children": [{
+							"name": "Decoración interior",
+							"icon": "icon_deco",
+							"tags": [
+								["shop","interior_decoration"]
+							],
+							"selected": false
+						},{
+							"name": "Muebles interior",
+							"icon": "icon_furniture",
+							"tags": [
+								["shop","furniture"]
+							],
+							"selected": false
+						},{
+							"name": "Articulos hogar",
+							"icon": "icon_houseware",
+							"tags": [
+								["shop","houseware"]
+							],
+							"selected": false
+						},{
+							"name": "Muebles jardín",
+							"icon": "icon_garden",
+							"tags": [
+								["shop","garden_centre"]
+							],
+							"selected": false
+						},{
+							"name": "Muebles baño",
+							"icon": "icon_bath",
+							"tags": [
+								["shop","bathroom_furnishing"]
+							],
+							"selected": false
+						}],
+						"selected": false,
+						"isOpen": true
 					}],
 		"isOpen" :false
 	},
@@ -224,6 +265,14 @@
 				"tags": [
 					["public_transport","platform"],
 					["bus","yes"]
+				],
+				"selected": false
+			}
+			,{
+				"name": "L02 Ctra. Arcos -> FFCC",
+				"icon": "icon_bus",
+				"tags": [
+					["2116416"]
 				],
 				"selected": false
 			}],

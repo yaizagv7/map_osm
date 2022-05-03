@@ -68,7 +68,7 @@ import "leaflet.snogylop";
 export default {
   data: function () {
     return {
-    /*sideBar: false,*/
+      /*sideBar: false,*/
       edit_tags: false,
       set_coord_mode: false,
       add_mode: false,
@@ -85,7 +85,7 @@ export default {
       layer: null,
       lastData: null,
       labels: [],
-      results_count: 0
+      results_count: 0,
     };
   },
   components: {
@@ -112,8 +112,8 @@ export default {
         return;
       }
       //console.log("datos");
-      //console.log(data);
-     this.results_count = data.elements.length;
+      console.log(data);
+      this.results_count = data.elements.length;
       // console.log("filter");
       // console.log(filter);
       let component = this;
@@ -132,8 +132,8 @@ export default {
         weight: 0,
       }).addTo(map);
       let ovData = osmtogeojson(data);
-    //   console.log("datos ov");
-    //   console.log(ovData);
+      //   console.log("datos ov");
+      //   console.log(ovData);
       this.layer = L.geoJson(ovData, {
         style: function () {
           //switch case para mas opciones
@@ -181,23 +181,39 @@ export default {
       }).addTo(map);
     },
     loadData: function (tags) {
-    //   console.log("tags loadData");
-    //   console.log(tags.length);
+      //   console.log("tags loadData");
+      //   console.log(tags.length);
       if (tags.length < 2 && tags != undefined) {
         this.loading = true;
-        this.fetchAmenity(
-          this.map.getCenter(),
-          (data) => this.displayData(data),
-          () => {
-            this.snackbar_text = this.$t("message.loadDataError");
-            this.snackbar = true;
-            this.loading = false;
-          },
-          tags[0][0],
-          tags[0][1]
-        );
-      } else if(tags.length == 2 && tags != undefined){
+        /*-----------------------------------------RELATION--*/
+        if (tags[0] == 1) {
+          this.fetchRelation(
+            this.map.getCenter(),
+            (data) => this.displayData(data),
+            () => {
+              this.snackbar_text = this.$t("message.loadDataError");
+              this.snackbar = true;
+              this.loading = false;
+            },
+            tags[0][0]
+          );
+        } else {
+          /*-------------------------------------BASIC QUERY--*/
+          this.fetchAmenity(
+            this.map.getCenter(),
+            (data) => this.displayData(data),
+            () => {
+              this.snackbar_text = this.$t("message.loadDataError");
+              this.snackbar = true;
+              this.loading = false;
+            },
+            tags[0][0],
+            tags[0][1]
+          );
+        }
+      } else if (tags.length == 2 && tags != undefined) {
         this.loading = true;
+        /*---------------------------------------DOUBLE QUERY--*/
         this.fetchAmenity2(
           this.map.getCenter(),
           (data) => this.displayData(data),
@@ -268,8 +284,8 @@ export default {
       this.marker = L.marker(this.map.getCenter());
     },
     loadNode: function (params) {
-    //   console.log("params loadNode");
-    //   console.log(params);
+      //   console.log("params loadNode");
+      //   console.log(params);
       let component = this;
       this.fetchNode(params, function (data) {
         if (data.elements.length > 0) {
@@ -322,7 +338,6 @@ export default {
 
 <style>
 @media screen and (max-width: 500px) {
-
 }
 .main_loading {
   position: fixed !important;
