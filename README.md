@@ -22,14 +22,13 @@ De este modo la aplicación usa un servidor de OSM para desarrolladores.
 
 ## Despliegue en Android o iOS
 
-Seguir el tutorial [Capacitor: de Vue a APK]( https://gerardofloresgr.medium.com/capacitor-de-web-a-android-y-ios-con-proyectos-existentes-a59725d7f81d/ )
+Seguir el tutorial [Capacitor: de Vue a APK](https://gerardofloresgr.medium.com/capacitor-de-web-a-android-y-ios-con-proyectos-existentes-a59725d7f81d/ )
 
-[Crear apk en Android Studio] (https://code.tutsplus.com/es/tutorials/how-to-generate-apk-and-signed-apk-files-in-android-studio--cms-37927 )
+[Crear apk en Android Studio](https://code.tutsplus.com/es/tutorials/how-to-generate-apk-and-signed-apk-files-in-android-studio--cms-37927 )
 
 ## OSM Tags & data
 
 Las etiquetas de búsqueda y las opciones del menú se encuentran en el directorio **src/menu-data.json**.
-
 Ejemplos ya añadidos:
 
 | Title in UI     |    OSM Tag                | Note |
@@ -40,4 +39,6 @@ Ejemplos ya añadidos:
 | Gasolineras     | amenity:fuel              |      |
 
 Para más información sobre las posibles etiquetas de búsqeuda visitar [OSM Wiki](https://wiki.openstreetmap.org/wiki/).
+
+Para cada elemento añadido en el fichero **menu-data.json** deben actualizarse también las propiedades en el fichero **NodeInfo.vue** (method allTagsRenderMethod y translateItem) y el filtro de los nodos mostrados en nuestro mapa, en el fichero **Map.vue** (method displayData).
 
