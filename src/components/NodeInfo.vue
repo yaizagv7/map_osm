@@ -192,6 +192,12 @@ export default {
               this.type_node = "icon_infopoint2";
             }
             break;
+          case "bus":
+            if(this.all_tags[key] == "yes"){
+              this.type_node = "icon_bus2"
+            }
+            this.category_node = "Parada de autobus";
+            break;
           case "amenity":
             /* if (this.all_tags_fixed["Categoria"]) {
               this.all_tags_fixed["Categoria"] =
@@ -322,6 +328,9 @@ export default {
               this.all_tags[key]
             );
             break;
+            default:
+              console.log(key);
+              break;
         }
       }
       if (this.all_tags_fixed["Direccion"] && this.all_tags_fixed["nº"]) {
@@ -352,6 +361,8 @@ export default {
         case "cosmetics":
           item = "Cosméticos";
           return item;
+        case "pharmacy":
+          return "Farmacia";
         case "outside":
           item = "Fuera";
           return item;
@@ -398,6 +409,7 @@ export default {
         case "fast_food":
           return "Comida rápida";
         default:
+          //console.log(item);
           return item;
       }
     },
@@ -592,5 +604,8 @@ table {
 }
 .terrace {
   background-image: url("data:image/svg+xml,%3Csvg version='1.0' xmlns='http://www.w3.org/2000/svg' widt='100%' height='100%' viewBox='0 0 64.000000 64.000000' preserveAspectRatio='xMidYMid meet'%3E%3Cg transform='translate(0.000000,64.000000) scale(0.100000,-0.100000)'%0Afill='%23000000' stroke='none'%3E%3Cpath d='M145 533 c-128 -37 -145 -45 -145 -74 0 -30 37 -41 124 -38 44 1 105%0A1 134 1 l52 -2 0 -95 0 -95 -56 0 c-34 0 -53 -4 -49 -10 3 -5 22 -10 42 -10%0A22 0 41 -7 49 -17 15 -21 19 -73 4 -73 -12 0 -34 -40 -26 -48 4 -3 13 3 21 14%0A13 17 14 17 15 2 0 -10 5 -18 10 -18 6 0 10 8 10 18 1 15 2 15 15 -2 8 -11 17%0A-17 21 -14 8 8 -14 48 -26 48 -15 0 -11 52 4 72 8 11 27 18 49 18 20 0 39 5%0A42 10 4 6 -15 10 -49 10 l-56 0 0 95 0 95 53 2 c28 0 89 0 133 -1 47 -2 90 2%0A103 8 23 13 28 43 8 59 -24 20 -265 82 -314 81 -26 -1 -102 -17 -168 -36z%0Am230 -10 l40 -28 -47 -3 c-27 -2 -69 -2 -95 0 l-48 3 40 28 c22 15 47 27 55%0A27 8 0 33 -12 55 -27z m-157 -8 c-25 -17 -51 -25 -79 -25 -54 0 -47 6 32 30%0A85 25 90 24 47 -5z m267 -2 c42 -12 53 -18 37 -21 -42 -7 -11 -22 44 -22 40 0%0A55 -4 52 -12 -6 -16 -137 -23 -151 -9 -7 7 -6 15 3 26 7 8 9 15 4 15 -5 0 -27%0A12 -49 26 -42 26 -37 26 60 -3z m-307 -55 c-3 -9 -28 -13 -78 -13 -50 0 -75 4%0A-77 13 -4 9 16 12 77 12 61 0 81 -3 78 -12z m260 0 c-6 -18 -230 -18 -235 0%0A-4 9 24 12 117 12 93 0 121 -3 118 -12z'/%3E%3Cpath d='M59 276 c10 -12 12 -40 9 -111 -5 -91 3 -123 16 -70 6 22 12 25 51%0A25 39 0 45 -3 51 -25 9 -37 28 -31 20 6 -3 17 -6 44 -6 60 0 28 -1 29 -54 29%0Al-55 0 -3 47 c-2 38 -7 49 -23 52 -17 3 -18 1 -6 -13z m121 -121 c0 -11 -12%0A-15 -45 -15 -33 0 -45 4 -45 15 0 11 12 15 45 15 33 0 45 -4 45 -15z'/%3E%3Cpath d='M557 283 c-4 -3 -7 -26 -7 -50 l0 -43 -55 0 c-54 0 -55 -1 -55 -29 0%0A-16 -3 -43 -6 -60 -8 -37 11 -43 20 -6 6 22 12 25 51 25 39 0 45 -3 51 -25 13%0A-53 21 -21 16 70 -3 68 -1 99 8 110 10 12 10 15 -2 15 -8 0 -18 -3 -21 -7z%0Am-7 -128 c0 -11 -12 -15 -45 -15 -33 0 -45 4 -45 15 0 11 12 15 45 15 33 0 45%0A-4 45 -15z'/%3E%3C/g%3E%3C/svg%3E");
+}
+.icon_bus2 {
+  background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='Layer_1' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 512 512' style='enable-background:new 0 0 512 512;' xml:space='preserve'%3E%3Cg%3E%3Cg%3E%3Cpolygon points='111.263,391.157 111.263,422.557 141.042,422.557 141.042,478.878 172.441,478.878 172.441,422.557 342.24,422.557 342.24,478.878 373.639,478.878 373.639,422.557 403.418,422.557 403.418,391.157 '/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3Cg%3E%3Cpath d='M512,140.491V33.122H0v107.37h34.076v306.171H18.945v31.399h61.66v-31.399h-15.13V296.064h383.73v150.598h-15.131v31.399 h61.662v-31.399h-15.131V140.491H512z M307.379,262.634H203.769v-32.04h103.611V262.634z M449.206,264.665H338.779v-65.471H172.37 v65.471H65.476V140.491h383.73V264.665z M480.601,109.093H34.076h-2.677v-0.001V64.521h449.202V109.093z'/%3E%3C/g%3E%3C/g%3E%3Cg%3E%3C/g%3E%3C/svg%3E");
 }
 </style>

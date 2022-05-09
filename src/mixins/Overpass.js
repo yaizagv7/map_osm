@@ -112,9 +112,9 @@ export default {
             let query = new OverpassQuery();
             if(params.type === 'way') {
                 query.wayById(params.node);
-            }else if(params.type == 'relation'){
+            }/*else if(params.type == 'relation'){
                 query.relationById(params.node);
-            }
+            }*/
             else {
                 query.nodeById(params.node);
             }

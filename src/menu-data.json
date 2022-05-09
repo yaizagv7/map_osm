@@ -3,279 +3,555 @@
 		"id": 1,
 		"name": "Tiendas",
 		"icon": "icon_shops",
-		"children": [{
-						"name": "Peluquerias",
-						"icon": "icon_hairdresser",
-						"tags": [
-							["shop","hairdresser"]
-						],
-						"selected": false
-					}, 
+		"children": [
+			{
+				"name": "Peluquerias",
+				"icon": "icon_hairdresser",
+				"tags": [
+					[
+						"shop",
+						"hairdresser"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Gasolineras",
+				"icon": "icon_fuel",
+				"tags": [
+					[
+						"amenity",
+						"fuel"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Librerías",
+				"icon": "icon_book",
+				"tags": [
+					[
+						"shop",
+						"books"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Cosméticos",
+				"icon": "icon_cosmetic",
+				"tags": [
+					[
+						"shop",
+						"cosmetics"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Tiendas de zapatos",
+				"icon": "icon_shoe",
+				"tags": [
+					[
+						"shop",
+						"shoes"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Ópticas",
+				"icon": "icon_op",
+				"tags": [
+					[
+						"shop",
+						"optician"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Farmacias",
+				"icon": "icon_op",
+				"tags": [
+					[
+						"amenity",
+						"pharmacy"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Casa",
+				"icon": "icon_casa",
+				"children": [
 					{
-						"name": "Gasolineras",
-						"icon": "icon_fuel",
+						"name": "Decoración interior",
+						"icon": "icon_deco",
 						"tags": [
-							["amenity","fuel"]
+							[
+								"shop",
+								"interior_decoration"
+							]
 						],
 						"selected": false
 					},
 					{
-						"name": "Librerías",
-						"icon": "icon_book",
+						"name": "Muebles interior",
+						"icon": "icon_furniture",
 						"tags": [
-							["shop","books"]
+							[
+								"shop",
+								"furniture"
+							]
 						],
 						"selected": false
 					},
 					{
-						"name": "Cosméticos",
-						"icon": "icon_cosmetic",
+						"name": "Articulos hogar",
+						"icon": "icon_houseware",
 						"tags": [
-							["shop","cosmetics"]
+							[
+								"shop",
+								"houseware"
+							]
 						],
 						"selected": false
 					},
 					{
-						"name": "Tiendas de zapatos",
-						"icon": "icon_shoe",
+						"name": "Muebles jardín",
+						"icon": "icon_garden",
 						"tags": [
-							["shop","shoes"]
+							[
+								"shop",
+								"garden_centre"
+							]
 						],
 						"selected": false
 					},
 					{
-						"name": "Ópticas",
-						"icon": "icon_op",
+						"name": "Muebles baño",
+						"icon": "icon_bath",
 						"tags": [
-							["shop","optician"]
+							[
+								"shop",
+								"bathroom_furnishing"
+							]
 						],
 						"selected": false
-					},{
-						"name": "Casa",
-						"icon": "icon_casa",
-						"children": [{
-							"name": "Decoración interior",
-							"icon": "icon_deco",
-							"tags": [
-								["shop","interior_decoration"]
-							],
-							"selected": false
-						},{
-							"name": "Muebles interior",
-							"icon": "icon_furniture",
-							"tags": [
-								["shop","furniture"]
-							],
-							"selected": false
-						},{
-							"name": "Articulos hogar",
-							"icon": "icon_houseware",
-							"tags": [
-								["shop","houseware"]
-							],
-							"selected": false
-						},{
-							"name": "Muebles jardín",
-							"icon": "icon_garden",
-							"tags": [
-								["shop","garden_centre"]
-							],
-							"selected": false
-						},{
-							"name": "Muebles baño",
-							"icon": "icon_bath",
-							"tags": [
-								["shop","bathroom_furnishing"]
-							],
-							"selected": false
-						}],
-						"selected": false,
-						"isOpen": true
-					}],
-		"isOpen" :false
+					}
+				],
+				"selected": false,
+				"isOpen": false
+			}
+		],
+		"isOpen": false
 	},
 	{
 		"id": 2,
 		"name": "Restauracion",
 		"icon": "icon_rest",
-		"children": [{
+		"children": [
+			{
 				"name": "Bares",
 				"icon": "icon_bar",
 				"tags": [
-					["amenity","bar"]
+					[
+						"amenity",
+						"bar"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Restaurantes chinos",
 				"icon": "icon_chinese",
 				"tags": [
-					["amenity","restaurant"],
-					["cuisine", "chinese"]
+					[
+						"amenity",
+						"restaurant"
+					],
+					[
+						"cuisine",
+						"chinese"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Restaurantes locales",
 				"icon": "icon_regional",
 				"tags": [
-					["amenity","restaurant"],
-					["cuisine", "regional"]
+					[
+						"amenity",
+						"restaurant"
+					],
+					[
+						"cuisine",
+						"regional"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Restaurantes mexicanos",
 				"icon": "icon_mex",
 				"tags": [
-					["amenity","restaurant"],
-					["cuisine", "mexican"]
+					[
+						"amenity",
+						"restaurant"
+					],
+					[
+						"cuisine",
+						"mexican"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Restaurantes sushi",
 				"icon": "icon_sushi",
 				"tags": [
-					["amenity","restaurant"],
-					["cuisine", "sushi"]
+					[
+						"amenity",
+						"restaurant"
+					],
+					[
+						"cuisine",
+						"sushi"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Restaurantes italianos",
 				"icon": "icon_ita",
 				"tags": [
-					["amenity","restaurant"],
-					["cuisine", "italian"]
+					[
+						"amenity",
+						"restaurant"
+					],
+					[
+						"cuisine",
+						"italian"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Opciones veggie/vegan",
 				"icon": "icon_veg",
 				"tags": [
-					["diet:vegan","yes"]
+					[
+						"diet:vegan",
+						"yes"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Kebabs",
 				"icon": "icon_kebab",
 				"tags": [
-					["amenity","fast_food"],
-					["cuisine", "kebab"]
+					[
+						"amenity",
+						"fast_food"
+					],
+					[
+						"cuisine",
+						"kebab"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Pizzerias",
 				"icon": "icon_pizza",
 				"tags": [
-					["cuisine", "pizza"]
+					[
+						"cuisine",
+						"pizza"
+					]
 				],
 				"selected": false
-			}],
-		"isOpen":false
+			}
+		],
+		"isOpen": false
 	},
 	{
 		"id": 3,
 		"name": "Turismo",
 		"icon": "icon_tourism",
-		"children": [{
+		"children": [
+			{
 				"name": "Hoteles",
 				"icon": "icon_h",
 				"tags": [
-					["tourism","hotel"]
+					[
+						"tourism",
+						"hotel"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Hostales",
-				"icon": "icon_h",
+				"icon": "icon_hs",
 				"tags": [
-					["tourism","hostel"]
+					[
+						"tourism",
+						"hostel"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Obras de arte",
 				"icon": "icon_artwork",
 				"tags": [
-					["tourism","artwork"]
+					[
+						"tourism",
+						"artwork"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Miradores",
 				"icon": "icon_view",
 				"tags": [
-					["tourism","viewpoint"]
+					[
+						"tourism",
+						"viewpoint"
+					]
 				],
 				"selected": false
-			},{
+			},
+			{
 				"name": "Puntos de informacion",
 				"icon": "icon_infopoint",
 				"tags": [
-					["tourism","information"]
+					[
+						"tourism",
+						"information"
+					]
 				],
 				"selected": false
-			}],
-		"isOpen":false
+			}
+		],
+		"isOpen": false
 	},
 	{
 		"id": 4,
 		"name": "Aparcamiento",
 		"icon": "icon_p",
-		"children": [{
+		"children": [
+			{
 				"name": "Aparcamientos superficie",
 				"icon": "icon_p",
 				"tags": [
-					["parking","surface"],
-					["access","yes"]
+					[
+						"parking",
+						"surface"
+					],
+					[
+						"access",
+						"yes"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Aparcamientos subterráneos",
 				"icon": "icon_p",
 				"tags": [
-					["parking","underground"],
-					["access","yes"]
+					[
+						"parking",
+						"underground"
+					],
+					[
+						"access",
+						"yes"
+					]
 				],
 				"selected": false
-			}, 
+			},
 			{
 				"name": "Carga coches eléctricos",
 				"icon": "icon_el_car",
 				"tags": [
-					["amenity","charging_station"]
+					[
+						"amenity",
+						"charging_station"
+					]
 				],
 				"selected": false
-			}],
-		"isOpen":false
-	},{
-		"id": 5,
-		"name": "Transporte",
-		"icon": "icon_trans",
-		"children": [{
-				"name": "Paradas de taxi",
-				"icon": "icon_taxi",
-				"tags": [
-					["amenity","taxi"]
-				],
-				"selected": false
-			}, 
+			},
 			{
-				"name": "Paradas de autobus",
-				"icon": "icon_bus",
+				"name": "Aparcamientos moto",
+				"icon": "icon_moto",
 				"tags": [
-					["public_transport","platform"],
-					["bus","yes"]
+					[
+						"amenity",
+						"motorcycle_parking"
+					]
 				],
 				"selected": false
 			}
-			,{
-				"name": "L02 Ctra. Arcos -> FFCC",
-				"icon": "icon_bus",
+		],
+		"isOpen": false
+	},
+	{
+		"id": 5,
+		"name": "Transporte",
+		"icon": "icon_trans",
+		"children": [
+			{
+				"name": "Paradas de taxi",
+				"icon": "icon_taxi",
 				"tags": [
-					["2116416"]
+					[
+						"amenity",
+						"taxi"
+					]
 				],
 				"selected": false
-			}],
-		"isOpen":false
+			},
+			{
+				"name": "Paradas de autobus",
+				"icon": "icon_bus",
+				"children": [
+					{
+						"name": "L01 Av. Arlanzon <> Gamonal",
+						"tags": [
+							[
+								"2099651"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L02 Ctra. Arcos <> FFCC",
+						"tags": [
+							[
+								"2202713"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L03 V. Alegre <> S.J Bautista",
+						"tags": [
+							[
+								"2277207"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L04 Castañares <> D. Vallés",
+						"tags": [
+							[
+								"2277333"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L05 V.Alegre <> El Pilar",
+						"tags": [
+							[
+								"2162577"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L06  Plz España <> I.G.Rámila",
+						"tags": [
+							[
+								"2102473"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L07 V.Alegre <> El Pilar",
+						"tags": [
+							[
+								"12966753"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L08 G. Teatro <> Villafría",
+						"tags": [
+							[
+								"2102569"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L09 Plz España <> Cortes",
+						"tags": [
+							[
+								"12991564"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L10 G. Teatro <> DDHH",
+						"tags": [
+							[
+								"2202713"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L11 Plz España <> Villímar",
+						"tags": [
+							[
+								"2202713"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L12 El Pilar <> FFCC",
+						"tags": [
+							[
+								"2627026"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L13 Gamonal <> D. Vallés",
+						"tags": [
+							[
+								"4002027"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "L14 Plz España <> Villatoro",
+						"tags": [
+							[
+								"2143743"
+							]
+						],
+						"selected": false
+					}
+				],
+				"selected": false,
+				"isOpen": false
+			}
+		],
+		"isOpen": false
 	}
-] 
+]

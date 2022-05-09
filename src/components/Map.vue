@@ -112,10 +112,8 @@ export default {
         return;
       }
       //console.log("datos");
-      console.log(data);
+      //console.log(data);
       this.results_count = data.elements.length;
-      // console.log("filter");
-      // console.log(filter);
       let component = this;
       let map = this.map;
       this.lastData = data;
@@ -131,21 +129,50 @@ export default {
         color: "#424242",
         weight: 0,
       }).addTo(map);
-      let ovData = osmtogeojson(data);
-      //   console.log("datos ov");
-      //   console.log(ovData);
+      let ovData = null;
+      ovData = osmtogeojson(data);
+      //console.log("datos ov");
+      //console.log(ovData);
       this.layer = L.geoJson(ovData, {
-        style: function () {
-          //switch case para mas opciones
-          var color = "#FFFFFF"; // white
-          return {
-            opacity: 1,
-            fillOpacity: 1,
-            color: "black",
-            fillColor: color,
-            weight: 1,
-            radius: 6,
-          };
+        style: function (feature) {
+          let color = "#FFFFFF"; // white
+          if (
+            feature.properties.public_transport == "platform" ||
+            feature.properties.hasOwnProperty("amenity") ||
+            feature.properties.hasOwnProperty("shop") ||
+            feature.properties.hasOwnProperty("tourism") ||
+            feature.properties.hasOwnProperty("parking")
+          ) {
+            return {
+              opacity: 1,
+              fillOpacity: 1,
+              color: "black",
+              fillColor: color,
+              weight: 1,
+              radius: 6,
+              zIndex: 5,
+            };
+          } else if (feature.id.includes("way")) {
+            return {
+              //pointerEvents: none,
+              opacity: 1,
+              //fillOpacity: 0,
+              color: "black",
+              //fillColor: "white",
+              weight: 3,
+              radius: 1,
+            };
+          } else {
+            return {
+              //display: none,
+              opacity: 0,
+              fillOpacity: 0,
+              color: "black",
+              fillColor: "pink",
+              weight: 1,
+              radius: 1,
+            };
+          }
         },
         onEachFeature: function (feature, layer) {
           layer.on("click", function (ev) {
@@ -161,7 +188,6 @@ export default {
             component.selectedLayer = layer;
             component.selected = {
               props: geoJsonProps,
-              fractions: component.parseFractions(geoJsonProps),
               node_id: sel_id,
               node_type: sel_type,
             };
@@ -186,7 +212,7 @@ export default {
       if (tags.length < 2 && tags != undefined) {
         this.loading = true;
         /*-----------------------------------------RELATION--*/
-        if (tags[0] == 1) {
+        if (tags[0].length == 1) {
           this.fetchRelation(
             this.map.getCenter(),
             (data) => this.displayData(data),
