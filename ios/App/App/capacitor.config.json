@@ -1,0 +1,6 @@
+{
+	"appId": "com.moovity.test1moovemap",
+	"appName": "moovemap",
+	"webDir": "dist",
+	"bundledWebRuntime": false
+}

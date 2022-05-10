@@ -213,7 +213,7 @@ export default {
     width: 150px;
   }
   button {
-    left: 245px !important;
+    left: 245px 2s !important;
   }
   .map_filter {
     font-size: 11px !important;
@@ -221,7 +221,7 @@ export default {
   }
   .translate-enter-active,
   .translate-leave-active {
-    transition: right -240px !important;
+    transition: right -245px !important;
     transition-duration: 2s;
   }
   .translate-enter,
@@ -236,7 +236,7 @@ export default {
 }
 .translate-enter,
 .translate-leave-to {
-  transform: translateX(-285px);
+  transform: translateX(-280px);
 }
 button {
   background-color: #000000 !important;
