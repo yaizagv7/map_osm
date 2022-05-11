@@ -31,14 +31,17 @@ Seguir el tutorial [Capacitor: de Vue a APK](https://gerardofloresgr.medium.com/
 Las etiquetas de búsqueda y las opciones del menú se encuentran en el directorio **src/menu-data.json**.
 Ejemplos ya añadidos:
 
-| Title in UI     |    OSM Tag                | Note |
-|-----------------|---------------------------|------|
-| Restaurantes    | amenity:restaurant        |      |
-| Bares           | amenity:bar               |      |
-| Peluquerias     | shop:hairdresser          |      |
-| Gasolineras     | amenity:fuel              |      |
+| Title in UI     |    OSM Tag                |
+|-----------------|---------------------------|
+| Restaurantes    | amenity:restaurant        |      
+| Bares           | amenity:bar               |      
+| Peluquerias     | shop:hairdresser          |      
+| Gasolineras     | amenity:fuel              |      
 
 Para más información sobre las posibles etiquetas de búsqeuda visitar [OSM Wiki](https://wiki.openstreetmap.org/wiki/).
 
-Para cada elemento añadido en el fichero **menu-data.json** deben actualizarse también las propiedades en el fichero **NodeInfo.vue** (method allTagsRenderMethod y translateItem) y el filtro de los nodos mostrados en nuestro mapa, en el fichero **Map.vue** (method displayData).
+Para cada elemento añadido en el fichero **menu-data.json** deben actualizarse también:
+- Las propiedades en el fichero **NodeInfo.vue** (method allTagsRenderMethod y translateItem)
+- El icono asociado (en el CSS mediante selector de clase)
+- El filtro de los nodos recibidos/mostrados en nuestro mapa, en el fichero **Map.vue** (method displayData).
 

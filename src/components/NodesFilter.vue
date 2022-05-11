@@ -231,12 +231,12 @@ export default {
 }
 .translate-enter-active,
 .translate-leave-active {
-  transition: right -280px;
+  transition: right -287px ease;
   transition-duration: 2s;
 }
 .translate-enter,
 .translate-leave-to {
-  transform: translateX(-280px);
+  transform: translateX(-287px);
 }
 button {
   background-color: #000000 !important;
@@ -249,7 +249,7 @@ button {
   left: 285px;
   top: 15px;
   cursor: pointer;
-  transition: left 2s;
+  transition: left 2s ease;
 }
 .item_selected {
   filter: invert(1);

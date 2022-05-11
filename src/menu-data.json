@@ -5,12 +5,45 @@
 		"icon": "icon_shops",
 		"children": [
 			{
-				"name": "Peluquerias",
-				"icon": "icon_hairdresser",
+				"name": "Centros comerciales",
+				"icon": "icon_mall",
 				"tags": [
 					[
 						"shop",
-						"hairdresser"
+						"mall"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Bazares",
+				"icon": "icon_variety",
+				"tags": [
+					[
+						"shop",
+						"variety_store"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Golosinas",
+				"icon": "icon_confectionery",
+				"tags": [
+					[
+						"shop",
+						"confectionery"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Floristerías",
+				"icon": "icon_florist",
+				"tags": [
+					[
+						"shop",
+						"florist"
 					]
 				],
 				"selected": false
@@ -38,28 +71,6 @@
 				"selected": false
 			},
 			{
-				"name": "Cosméticos",
-				"icon": "icon_cosmetic",
-				"tags": [
-					[
-						"shop",
-						"cosmetics"
-					]
-				],
-				"selected": false
-			},
-			{
-				"name": "Tiendas de zapatos",
-				"icon": "icon_shoe",
-				"tags": [
-					[
-						"shop",
-						"shoes"
-					]
-				],
-				"selected": false
-			},
-			{
 				"name": "Ópticas",
 				"icon": "icon_op",
 				"tags": [
@@ -80,6 +91,58 @@
 					]
 				],
 				"selected": false
+			},
+			{
+				"name": "Estética",
+				"icon": "icon_aesth",
+				"children": [
+					{
+						"name": "Ropa",
+						"icon": "icon_clothes",
+						"tags": [
+							[
+								"shop",
+								"clothes"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Zapatos",
+						"icon": "icon_shoe",
+						"tags": [
+							[
+								"shop",
+								"shoes"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Cosméticos",
+						"icon": "icon_cosmetic",
+						"tags": [
+							[
+								"shop",
+								"cosmetics"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Peluquerias",
+						"icon": "icon_hairdresser",
+						"tags": [
+							[
+								"shop",
+								"hairdresser"
+							]
+						],
+						"selected": false
+					}
+				],
+				"selected": false,
+				"isOpen": false
 			},
 			{
 				"name": "Casa",
@@ -820,6 +883,47 @@
 				],
 				"selected": false,
 				"isOpen": false
+			}
+		],
+		"isOpen": false
+	},
+	{
+		"id": 6,
+		"name": "Servicios",
+		"icon": "icon_services",
+		"children": [
+			{
+				"name": "Agua potable",
+				"icon": "icon_water",
+				"tags": [
+					[
+						"amenity",
+						"drinking_water"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "WC",
+				"icon": "icon_water",
+				"tags": [
+					[
+						"amenity",
+						"toilets"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "ATM",
+				"icon": "icon_atm",
+				"tags": [
+					[
+						"atm",
+						"yes"
+					]
+				],
+				"selected": false
 			}
 		],
 		"isOpen": false

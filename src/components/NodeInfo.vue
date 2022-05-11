@@ -408,6 +408,14 @@ export default {
           return "Bar";
         case "fast_food":
           return "Comida rápida";
+        case "bank":
+          return "Banco";
+        case "mall":
+          return "Centro comercial";
+        case "variety_store":
+          return "Bazar";        
+        case "clothes":
+          return "Tienda de ropa";
         default:
           //console.log(item);
           return item;
