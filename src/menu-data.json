@@ -71,26 +71,86 @@
 				"selected": false
 			},
 			{
-				"name": "Ópticas",
-				"icon": "icon_op",
-				"tags": [
-					[
-						"shop",
-						"optician"
-					]
+				"name": "Salud",
+				"icon": "icon_pet",
+				"children": [
+					{
+						"name": "Farmacias",
+						"icon": "icon_pharmacy",
+						"tags": [
+							[
+								"amenity",
+								"pharmacy"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Ópticas",
+						"icon": "icon_op",
+						"tags": [
+							[
+								"shop",
+								"optician"
+							]
+						],
+						"selected": false
+					}
 				],
-				"selected": false
+				"selected": false,
+				"isOpen": false
 			},
 			{
-				"name": "Farmacias",
-				"icon": "icon_op",
-				"tags": [
-					[
-						"amenity",
-						"pharmacy"
-					]
+				"name": "Mascotas",
+				"icon": "icon_pet",
+				"children": [
+					{
+						"name": "Veterinarios",
+						"icon": "icon_vet",
+						"tags": [
+							[
+								"amenity",
+								"veterinary"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Peluquerias caninas",
+						"icon": "icon_hairdresser",
+						"tags": [
+							[
+								"shop",
+								"pet_grooming"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Accesorios y alimentación",
+						"icon": "icon_dog",
+						"tags": [
+							[
+								"shop",
+								"pet"
+							]
+						],
+						"selected": false
+					},
+					{
+						"name": "Residencias caninas",
+						"icon": "icon_housedog",
+						"tags": [
+							[
+								"amenity",
+								"animal_boarding"
+							]
+						],
+						"selected": false
+					}
 				],
-				"selected": false
+				"selected": false,
+				"isOpen": false
 			},
 			{
 				"name": "Estética",
@@ -183,7 +243,7 @@
 					},
 					{
 						"name": "Muebles jardín",
-						"icon": "icon_garden",
+						"icon": "icon_florist",
 						"tags": [
 							[
 								"shop",
@@ -397,6 +457,28 @@
 					[
 						"tourism",
 						"information"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Museos",
+				"icon": "icon_museum",
+				"tags": [
+					[
+						"tourism",
+						"museum"
+					]
+				],
+				"selected": false
+			},
+			{
+				"name": "Mesas de picnic",
+				"icon": "icon_infopoint",
+				"tags": [
+					[
+						"tourism",
+						"picnic_site"
 					]
 				],
 				"selected": false

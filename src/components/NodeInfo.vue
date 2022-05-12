@@ -416,6 +416,10 @@ export default {
           return "Bazar";        
         case "clothes":
           return "Tienda de ropa";
+        case "pet":
+          return "Mascotas";
+        case "animal_boarding":
+          return "Residencia canina";
         default:
           //console.log(item);
           return item;
