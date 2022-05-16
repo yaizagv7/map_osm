@@ -4,7 +4,9 @@
       <div class="node_info" v-if="sideBar">
         <div class="icon_node" :class="type_node"></div>
         <table>
-          <tr><td class="category_node">{{category_node}}</td></tr>
+          <tr>
+            <td class="category_node">{{ category_node }}</td>
+          </tr>
           <td class="title data">{{ name_node }}</td>
           <div style="height: 20px"></div>
           <td class="data" v-for="(item, key) in allTagsRender" :key="key">
@@ -124,32 +126,8 @@ export default {
     allTagsRender: function () {
       return this.allTagsRenderMethod();
     },
-    allTagsIconsRender: function () {
-      for (const key in this.all_tags) {
-        switch (key) {
-          case "wheelchair":
-            this.all_tags_icons["Acceso silla de ruedas"] = this.translateItem(
-              this.all_tags[key]
-            );
-            break;
-          case "smoking":
-            this.all_tags_icons["Fumar"] = this.translateItem(
-              this.all_tags[key]
-            );
-            break;
-          case "air_conditioning":
-            this.all_tags_icons["Aire acondicionado"] = this.translateItem(
-              this.all_tags[key]
-            );
-            break;
-          case "outdoor_seating":
-            this.all_tags_icons["Terraza"] = this.translateItem(
-              this.all_tags[key]
-            );
-            break;
-        }
-      }
-      return this.all_tags_icons;
+    allTagsIconsRender: function (){
+      return this.allTagsIconsRenderMethod();
     },
   },
   methods: {
@@ -165,9 +143,7 @@ export default {
             this.name_node = this.all_tags[key];
             break;
           case "shop":
-            this.category_node = this.translateItem(
-              this.all_tags[key]
-            );
+            this.category_node = this.translateItem(this.all_tags[key]);
             if (this.all_tags[key] == "hairdresser") {
               this.type_node = "icon_hairdresser2";
             }
@@ -193,8 +169,8 @@ export default {
             }
             break;
           case "bus":
-            if(this.all_tags[key] == "yes"){
-              this.type_node = "icon_bus2"
+            if (this.all_tags[key] == "yes") {
+              this.type_node = "icon_bus2";
             }
             this.category_node = "Parada de autobus";
             break;
@@ -204,9 +180,7 @@ export default {
                 this.all_tags_fixed["Categoria"];
               "/" + this.translateItem(this.all_tags[key]);
             } else {*/
-            this.category_node = this.translateItem(
-              this.all_tags[key]
-            );
+            this.category_node = this.translateItem(this.all_tags[key]);
 
             if (this.all_tags[key] == "fuel") {
               this.type_node = "icon_fuel2";
@@ -328,9 +302,9 @@ export default {
               this.all_tags[key]
             );
             break;
-            default:
-              //console.log(key);
-              break;
+          default:
+            //console.log(key);
+            break;
         }
       }
       if (this.all_tags_fixed["Direccion"] && this.all_tags_fixed["nº"]) {
@@ -350,34 +324,25 @@ export default {
     translateItem: function (item) {
       switch (item) {
         case "yes":
-          item = "Si";
-          return item;
+          return "Si";
         case "fuel":
-          item = "Gasolinera";
-          return item;
+          return "Gasolinera";
         case "hairdresser":
-          item = "Peluquería";
-          return item;
+          return "Peluquería";
         case "cosmetics":
-          item = "Cosméticos";
-          return item;
+         return "Cosméticos";
         case "pharmacy":
           return "Farmacia";
         case "outside":
-          item = "Fuera";
-          return item;
+          return "Fuera";
         case "limited":
-          item = "Limitado";
-          return item;
+          return "Limitado";
         case "restaurant":
-          item = "Restaurante";
-          return item;
+          return "Restaurante";
         case "convenience":
-          item = "Tienda";
-          return item;
+          return "Tienda";
         case "books":
-          item = "Tienda de libros";
-          return item;
+          return "Tienda de libros";
         case "board":
           return "Tablón";
         case "office":
@@ -413,7 +378,7 @@ export default {
         case "mall":
           return "Centro comercial";
         case "variety_store":
-          return "Bazar";        
+          return "Bazar";
         case "clothes":
           return "Tienda de ropa";
         case "pet":
@@ -424,6 +389,33 @@ export default {
           //console.log(item);
           return item;
       }
+    },
+    allTagsIconsRenderMethod: function () {
+      for (const key in this.all_tags) {
+        switch (key) {
+          case "wheelchair":
+            this.all_tags_icons["Acceso silla de ruedas"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "smoking":
+            this.all_tags_icons["Fumar"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "air_conditioning":
+            this.all_tags_icons["Aire acondicionado"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+          case "outdoor_seating":
+            this.all_tags_icons["Terraza"] = this.translateItem(
+              this.all_tags[key]
+            );
+            break;
+        }
+      }
+      return this.all_tags_icons;
     },
     closePopup: function () {
       this.$emit("close-info");

@@ -146,6 +146,7 @@ export default {
       button: true,
       search: "",
       toggle_selected: "",
+      itemtrue: false
     };
   },
   methods: {
@@ -170,7 +171,8 @@ export default {
       if (!valThis || valThis == "") {
         return true;
       }
-      if (item.name.toLowerCase().includes(valThis)) {
+      else if (item.name.toLowerCase().includes(valThis)) {
+        //item.isOpen = true;
         return true;
       }
       return false;
@@ -178,7 +180,11 @@ export default {
     childFilter(child, item) {
       var valThis = this.search.toLowerCase();
       if (valThis != "") {
-        if (child.name.toLowerCase().includes(valThis)) {
+        if(item.name.toLowerCase().includes(valThis)){
+          //item.isOpen = true;
+          return true;
+        }
+        else if(child.name.toLowerCase().includes(valThis)) {
           item.isOpen = true;
           return true;
         }

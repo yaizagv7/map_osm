@@ -397,6 +397,17 @@
 					]
 				],
 				"selected": false
+			},
+			{
+				"name": "Hamburguesas",
+				"icon": "icon_burger",
+				"tags": [
+					[
+						"cuisine",
+						"burger"
+					]
+				],
+				"selected": false
 			}
 		],
 		"isOpen": false
