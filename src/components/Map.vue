@@ -135,7 +135,7 @@ export default {
       //console.log(ovData);
       this.layer = L.geoJson(ovData, {
         style: function (feature) {
-          let color = "#FFFFFF"; // white
+          let color = "#2A2A2A"; // white
           if (
             feature.properties.public_transport == "platform" ||
             feature.properties.hasOwnProperty("amenity") ||
@@ -146,7 +146,7 @@ export default {
             return {
               opacity: 1,
               fillOpacity: 1,
-              color: "black",
+              color: "darkGrey",
               fillColor: color,
               weight: 1,
               radius: 6,

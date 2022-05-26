@@ -41,7 +41,7 @@ Ejemplos ya añadidos:
 Para más información sobre las posibles etiquetas de búsqeuda visitar [OSM Wiki](https://wiki.openstreetmap.org/wiki/).
 
 Para cada elemento añadido en el fichero **menu-data.json** deben actualizarse también:
-- Las propiedades en el fichero **NodeInfo.vue** (method allTagsRenderMethod y translateItem)
-- El icono asociado (en el CSS mediante selector de clase)
+- Las propiedades/tags que queremos mostrar en la información de cada nodo, en el fichero **NodeInfo.vue** (method allTagsRenderMethod y translateItem)
+- El icono asociado (en el CSS, selector de clase, backgroundImage), en **NodeInfo.vue** y **NodesFilter.vue**.
 - El filtro de los nodos recibidos/mostrados en nuestro mapa, en el fichero **Map.vue** (method displayData).
 

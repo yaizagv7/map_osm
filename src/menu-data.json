@@ -998,7 +998,7 @@
 			},
 			{
 				"name": "WC",
-				"icon": "icon_water",
+				"icon": "icon_wc",
 				"tags": [
 					[
 						"amenity",
